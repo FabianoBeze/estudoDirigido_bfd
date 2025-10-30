@@ -1,29 +1,43 @@
 -- Inserir dados na tabela loja
-INSERT INTO loja (nome, endereco) VALUES
-('Loja de Eletrônicos A', 'Rua das Inovações, 123'),
-('Magazine B', 'Avenida da Tecnologia, 456'),
-('Ponto C', 'Praça dos Gadgets, 789');
+INSERT INTO loja (nome, cnpj, endereco, telefone) VALUES
+('Loja de Eletrônicos A', '11.111.111/0001-11', 'Rua das Inovações, 123', '+55 (11) 91111-1111'),
+('Magazine B', '22.222.222/0001-22', 'Avenida da Tecnologia, 456', '+55 (21) 92222-2222'),
+('Ponto C', '33.333.333/0001-33', 'Praça dos Gadgets, 789', '+55 (31) 93333-3333');
 
 -- Inserir dados na tabela equipamento
 -- Equipamentos da Loja A
-INSERT INTO equipamento (nome, descricao, data_compra, preco, id_loja) VALUES
-('Notebook Gamer', 'Notebook de alta performance para jogos', '2023-01-15', 5500.00, 1),
-('Smartphone XYZ', 'Smartphone com câmera de 108MP', '2023-03-20', 2500.00, 1);
+INSERT INTO equipamento (nome, preco, data_venda, id_loja) VALUES
+('Notebook Gamer', 5500.00, '2023-01-15', 1),
+('Smartphone XYZ', 2500.00, '2023-03-20', 1);
 
 -- Equipamentos da Loja B
-INSERT INTO equipamento (nome, descricao, data_compra, preco, id_loja) VALUES
-('Smart TV 55"', 'Televisão com resolução 4K e HDR', '2022-11-05', 3200.00, 2),
-('Fone de Ouvido Bluetooth', 'Fone com cancelamento de ruído', '2023-08-01', 450.00, 2);
+INSERT INTO equipamento (nome, preco, data_venda, id_loja) VALUES
+('Smart TV 55"', 3200.00, '2022-11-05', 2),
+('Fone de Ouvido Bluetooth', 450.00, '2023-08-01', 2);
 
 -- Equipamentos da Loja C
-INSERT INTO equipamento (nome, descricao, data_compra, preco, id_loja) VALUES
-('Tablet Pro', 'Tablet para produtividade e desenho', '2023-05-10', 1800.00, 3);
+INSERT INTO equipamento (nome, preco, data_venda, id_loja) VALUES
+('Tablet Pro', 1800.00, '2023-05-10', 3);
 
 -- Inserir dados na tabela garantia
 -- Garantias dos equipamentos
-INSERT INTO garantia (id_equipamento, data_vencimento, documento_fiscal_path, seguradora) VALUES
-(1, '2024-01-15', '/docs/nf_notebook.pdf', 'Seguradora Alfa'),
-(2, '2024-03-20', '/docs/nf_smartphone.pdf', NULL),
-(3, '2023-11-05', '/docs/nf_tv.pdf', 'Seguradora Beta'),
-(4, '2024-08-01', '/docs/nf_fone.pdf', NULL),
-(5, '2024-05-10', '/docs/nf_tablet.pdf', 'Seguradora Alfa');
+INSERT INTO garantia (id_equipamento, data_inicio, data_fim, tipo) VALUES
+(1, '2023-01-15', '2024-01-15', 'Padrão'),
+(2, '2023-03-20', '2025-03-20', 'Estendida'),
+(3, '2022-11-05', '2023-11-05', 'Padrão'),
+(4, '2023-08-01', '2024-08-01', 'Padrão'),
+(5, '2023-05-10', '2025-05-10', 'Estendida');
+
+-- Inserir dados na tabela documentos
+INSERT INTO documentos (numero_nota) VALUES
+('NF-001-2023'),
+('NF-002-2023'),
+('NF-003-2022'),
+('NF-004-2023'),
+('NF-005-2023');
+
+-- Inserir dados na tabela usuarios
+INSERT INTO usuarios (cpf_usuario) VALUES
+('111.111.111-11'),
+('222.222.222-22'),
+('333.333.333-33');
